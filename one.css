@@ -54,8 +54,6 @@ html,body {
     height:100%;
     width: 30%;
     background-color: #d8d9db;
-    /* padding: 5px; */
-    border: 0.5px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,3 +107,21 @@ html,body {
     padding: 20px 5px;
   }
 
+/* button animation */
+.box {
+    padding: 5px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .box:hover {background-color: whitesmoke}
+  
+  .box:active {
+    background-color: silver;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
