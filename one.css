@@ -1,8 +1,10 @@
+/* removing extra spaces from the sides */
 html,body {
     margin:0;
     padding:0;
   }
 
+/* making the structure of the calculator */
 .calculator {
     background-color:blanchedalmond;
     height: 100vh;
@@ -27,6 +29,7 @@ html,body {
 
 .screen {
     background-color: black;
+    /* padding-bottom: 5px; */
     /* border: 0.5px solid blue; */
     height: 20vh;
     width: inherit;
@@ -58,6 +61,7 @@ html,body {
     align-items: center;
 }
 
+/* some css for the big buttons */
 #boxSquare1 {
     width: 60% !important;
 }
@@ -74,18 +78,24 @@ html,body {
     width:25%;
 }
 
-.right-arrow:before {
-    content:'\25BA';
-}
-
+/* css for the text on buttons */
 .operator{
     background-color: #df974c;
     color: white;
 }
 
+/* font styles for all */
 *{
     font: monospace;
     font-size: 30px;
     /* font-weight: ; */
 }
 
+/* adding styles to the screen */
+.screen-box {
+    height: 95%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: black;
+}
