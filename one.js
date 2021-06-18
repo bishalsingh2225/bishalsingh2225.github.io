@@ -1,8 +1,9 @@
-let first_variable = null;
+let first_variable;
 let operator = null;
 let second_variable = null;
 let buffer = 0;
 const screen = document.querySelector(".screen-output");
+let count = 0;
 
 function init() {
     document.querySelector(".buttons").addEventListener("click", function(event) {
@@ -21,15 +22,29 @@ function init() {
   }
 
   function handleNumber(value){
-      if(first_variable === null){
-          first_variable = value;
-          buffer = value;
-          rerender();
+      if(operator === null){
+          if(count === 0){
+              first_variable = value;
+              buffer = first_variable;
+              count ++;
+              rerender();
+          } else if(count !== 0 ){
+              first_variable += value;
+              buffer = first_variable;
+              rerender();
+          }
       }
-      else if(first_variable !== null){
-          second_variable = value;
-          buffer = value;
-          rerender();
+      else if(operator !== null){
+          if(count === 0){
+              second_variable = value;
+              buffer = second_variable;
+              count++;
+              rerender();
+          } else if(count !== 0){
+              second_variable += value;
+              buffer = second_variable;
+              rerender();
+          }
       }
 
   }
@@ -37,25 +52,35 @@ function init() {
   function handleSymbol(value){
     switch(value){
         case "←":
-            
+            let c = screen.innerText;
+            buffer = c.slice(0,c.length-1); 
+            if(first_variable == c){ first_variable = buffer; }
+            else if (second_variable == c ){ second_variable = buffer;}
+            rerender();
+            break;
         case "C":
             first_variable = null;
             second_variable = null;
             operator = null;
+            count = 0;
             buffer = 0;
             rerender();
             break;
         case "+":
             operator = '+';
+            count = 0;
             break;
         case "-":
             operator = '-';
+            count = 0;
             break;
         case "×":
             operator = '*';
+            count = 0;
             break;
         case "÷":
             operator = '/';
+            count = 0;
             break;
         case "=":
             first_variable = parseInt(first_variable);
@@ -63,7 +88,6 @@ function init() {
             switch(operator){
                 case '+':
                     buffer = first_variable + second_variable;
-                    rerender();
                     break;
                 case '-':
                     buffer = first_variable - second_variable;
@@ -76,19 +100,17 @@ function init() {
                     break;
 
             }
-            console.log("i reached");
             rerender();
-            console.log("i passed");
             first_variable = buffer;
             second_variable = null;
-            operator = 0;
+            operator = null;
+            // count = 0;
             break;
     }
   }
 
   function rerender(){
       screen.innerText = buffer;
-      console.log("mai chla hu");
   }
 
  init();
