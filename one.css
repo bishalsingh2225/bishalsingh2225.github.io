@@ -99,3 +99,13 @@ html,body {
     border-radius: 3px;
     background-color: black;
 }
+
+/* text decoration in screen */
+.screen-output {
+    color: white;
+    font-size: 40px;
+    font-family: "Courier New", Courier, monospace;
+    text-align: right;
+    padding: 20px 5px;
+  }
+
