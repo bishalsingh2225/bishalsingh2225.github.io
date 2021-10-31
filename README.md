@@ -12,7 +12,7 @@
 
 ##### If you liked the Project. or like to contribute to the project, do generate a pull request :smiley:
 
-##### Things for contribution :
-1> UI of the page
-2> adding more functions to the calculator
-3> adding keyboard input function for input 
+#### Things for contribution :
+1> UI of the page <br />
+2> adding more functions to the calculator <br />
+3> adding keyboard input function for input <br />
